@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+
+        <form action="/add" method="post">
+            <input type="text" name="title" placeholder="Title" required>
+            <input type="text" name="description" placeholder="Description">
+            <button type="submit">Add Task</button>
+        </form>
+
+        <h2>Tasks</h2>
+        <ul>
+            {% for todo in todos %}
+                <li>
+                    <strong class="{% if todo.completed %}done{% endif %}">{{ todo.title }}</strong>
+                    {% if todo.description %}
+                        <span class="{% if todo.completed %}done{% endif %}">- {{ todo.description }}</span>
+                    {% endif %}
+                    {% if todo.completed %}
+                        <span style="margin-left:8px; color:#22c55e; font-size:1.1em;">✅ Done</span>
+                    {% else %}
+                        <form action="/complete/{{ todo.id }}" method="post" style="display:inline;">
+                            <button type="submit">Mark Done</button>
+                        </form>
+                    {% endif %}
+                    <form action="/edit/{{ todo.id }}" method="get" style="display:inline;">
+                        <button type="submit">✏️ Edit</button>
+                    </form>
+                    <form action="/delete/{{ todo.id }}" method="post" style="display:inline;">
+                        <button type="submit">❌ Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

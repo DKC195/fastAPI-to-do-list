@@ -1,0 +1,144 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    padding: 32px 28px 24px 28px;
+}
+
+h1 {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 24px;
+}
+
+form[action="/add"] {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f1f5f9;
+}
+
+button[type="submit"] {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+    background: #1e40af;
+}
+
+h2 {
+    color: #475569;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f1f5f9;
+    margin-bottom: 12px;
+    padding: 14px 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+li strong {
+    color: #0f172a;
+    font-size: 1.08em;
+}
+
+li form {
+    margin: 0 2px;
+}
+
+li form button {
+    background: #e2e8f0;
+    color: #334155;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+li form[action^="/delete"] button {
+    background: #f87171;
+    color: #fff;
+}
+
+li form[action^="/delete"] button:hover {
+    background: #dc2626;
+}
+
+li form[action^="/complete"] button {
+    background: #4ade80;
+    color: #065f46;
+}
+
+li form[action^="/complete"] button:hover {
+    background: #16a34a;
+    color: #fff;
+}
+
+li form[action^="/edit"] button {
+    background: #fbbf24;
+    color: #92400e;
+}
+
+li form[action^="/edit"] button:hover {
+    background: #f59e42;
+    color: #fff;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 16px 6px 12px 6px;
+    }
+
+    form[action="/add"] {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
